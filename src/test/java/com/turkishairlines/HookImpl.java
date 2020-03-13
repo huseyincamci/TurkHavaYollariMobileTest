@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class HookImpl {
     private Logger logger = LoggerFactory.getLogger(getClass());
@@ -30,6 +31,8 @@ public class HookImpl {
     protected static FluentWait<AppiumDriver<MobileElement>> appiumFluentWait;
     protected boolean localAndroid = true;
     protected static Selector selector ;
+    protected static ArrayList<Passenger> passengers;
+    protected static ArrayList<Route> routes;
 
 
     @BeforeScenario
@@ -91,9 +94,7 @@ public class HookImpl {
                 desiredCapabilities.setCapability("sendKeyStrategy","setValue");
 
                 URL url = new URL("http://127.0.0.1:4723/wd/hub");
-                appiumDriver = new IOSDriver(url, desiredCapabilities);
-
-
+                appiumDriver = new IOSDriver(url, desiredCapabilities);;
             }
         } else {
             String hubURL = "http://hub.testinium.io/wd/hub";
@@ -137,6 +138,11 @@ public class HookImpl {
        appiumFluentWait.withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(450))
                 .ignoring(NoSuchElementException.class);
+
+
+
+        passengers = new Passenger().getPassengers();
+        routes = new Route().getRoutes();
     }
 
     @AfterScenario

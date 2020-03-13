@@ -1,0 +1,65 @@
+Created by Hüseyin Çamcı on 12.03.2020
+
+This is a concept file with following syntax for each concept.
+# Yön bilgisi olarak SAW to ESB Seçilir
+* "fromCode" li elementi bul ve varsa tıkla
+* "airportSearch-from" li elemente "0" indexli değeri yaz
+* "airportFrom" li elementi bul ve varsa tıkla
+* "toCode" li elementi bul ve varsa tıkla
+* "airportSearch-to" li elemente "0" indexli değeri yaz
+* "airportTo" li elementi bul ve varsa tıkla
+
+# <key> gün sonraya bilet seç
+* "btnSelectDate" li elementi bul ve varsa tıkla
+* <key> gün sonraya bilet seçilir
+* "btnDoneAfterDateSelect" li elementi bul ve varsa tıkla
+
+# 1. yolcu bilgilerini gir ve kaydet
+* "btnAddPassenger" li elementi bul ve varsa tıkla
+* Wait "2" seconds
+* "txtName" li elemente "0" indexli değeri yaz
+* "txtSurname" li elemente "0" indexli değeri yaz
+* Cinsiyet seç
+* "birthDate" li elementi bul ve varsa tıkla
+* "year" li elementi bul ve varsa tıkla
+* Klavyeyi kapat
+* "month" li elementi bul ve varsa tıkla
+* Klavyeyi kapat
+* "birthDateDone" li elementi bul ve varsa tıkla
+* "txtEmail" li elemente "0" indexli değeri yaz
+* Uyruk seç
+* "tcNo" li elemente "0" indexli değeri yaz
+* Yolcu bilgilerini kaydetmek istiyor musunuz? (Yes/No): "No"
+* "savePassenger" li elementi bul ve varsa tıkla
+
+# 2. yolcu bilgilerini gir ve kaydet
+* "addFirstPassenger" li elementi bul ve varsa tıkla
+* "addSecondPassenger" li elementi bul ve varsa tıkla
+* "btnAddPassenger" li elementi bul ve varsa tıkla
+* "txtName" li elemente "1" indexli değeri yaz
+* "txtSurname" li elemente "1" indexli değeri yaz
+* Cinsiyet seç
+* "birthDate" li elementi bul ve varsa tıkla
+* "year" li elementi bul ve varsa tıkla
+* Klavyeyi kapat
+* "month" li elementi bul ve varsa tıkla
+* Klavyeyi kapat
+* "birthDateDone" li elementi bul ve varsa tıkla
+* "txtEmail" li elemente "1" indexli değeri yaz
+* Uyruk seç
+* "tcNo" li elemente "1" indexli değeri yaz
+* Yolcu bilgilerini kaydetmek istiyor musunuz? (Yes/No): "No"
+* "savePassenger" li elementi bul ve varsa tıkla
+
+# Koltuk seçimi yap devam et
+* "btnSelectSeat" li elementi bul ve tıkla
+* Find element by "randomSeat"  swipe and click
+* "randomSeat" li elementi bul ve tıkla
+* "btnRandomSeatOk" li elementi bul ve tıkla
+* "btnSeatSelectionContinue" li elementi bul ve tıkla
+
+# Kredi kartı bilgilerini doldur
+* "txtCardNumber" li elementi bul ve "5574843244665400" değerini yaz
+* "creditCardExpiryDate" li elementi bul ve tıkla
+* "expiryDateOk" li elementi bul ve tıkla
+* "creditCardCvc" li elementi bul ve "216" değerini yaz

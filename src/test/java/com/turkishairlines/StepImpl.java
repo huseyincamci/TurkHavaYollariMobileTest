@@ -29,9 +29,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nullable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -240,7 +243,7 @@ public class StepImpl extends HookImpl {
         findElementByKey(key).click();
 //        MobileElement me = findElementByKey(key);
 //        tapElementWithCoordinate(me.getLocation().x, me.getLocation().y);
-        logger.info(key + "elemte tıkladı");
+        logger.info(key + " elemente tıkladı");
 
 
     }
@@ -255,7 +258,8 @@ public class StepImpl extends HookImpl {
         MobileElement element;
         element = findElementByKeyWithoutAssert(key);
         if (element != null) {
-            System.out.println("  varsa tıklaya girdi");
+            //System.out.println(key + " varsa tıklaya girdi");
+            logger.info(key + " varsa tıklaya girdi");
             Point elementPoint = ((MobileElement) element).getCenter();
             TouchAction action = new TouchAction(appiumDriver);
             action.tap(PointOption.point(elementPoint.x, elementPoint.y)).perform();
@@ -986,7 +990,7 @@ public class StepImpl extends HookImpl {
 
     }
 
-    @Step("<key> li elementi rasgele sec")
+    @Step("<key> li elementi rastgele sec")
     public void chooseRandomProduct(String key) {
 
         List<MobileElement> productList = new ArrayList<>();
@@ -1137,6 +1141,97 @@ public class StepImpl extends HookImpl {
         }
     }
 
+
+    // Own steps
+
+    @Step("<text> gün sonraya bilet seçilir")
+    public void selectDate(int day) {
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, day);
+        int afterDay = date.get(Calendar.DATE);
+
+        try {
+            findElement(By.xpath("//*[@text='" + afterDay + "']")).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Step("Cinsiyet seç")
+    public void selectGender() {
+        String gender = "Mr.";
+        try {
+            findElement(By.xpath("//*[@text='" + gender + "']")).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Step("Uyruk seç")
+    public void selectNationality() {
+        String nationality = "TC";
+        try {
+            findElement(By.xpath("//*[@text='" + nationality + "']")).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Step("Yolcu bilgilerini kaydetmek istiyor musunuz? (Yes/No): <key>")
+    public void selectYesOrNo(String key) {
+        try {
+            findElement(By.xpath("//*[@text='" + key + "']")).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Step("<key> li elemente <index> indexli değeri yaz")
+    public void sendToElement(String key, int index) {
+        switch (key) {
+            case "txtName":
+                sendKeysByKey(key, passengers.get(index).getName());
+                break;
+            case "txtSurname":
+                sendKeysByKey(key, passengers.get(index).getLastName());
+                break;
+
+            case "year":
+                clickByKey(key);
+                break;
+
+            case "month":
+                clickByKey(key);
+                break;
+            case "day":
+                clickByKey(key);
+                break;
+            case "txtEmail":
+                sendKeysByKey(key, passengers.get(index).getEmail());
+                break;
+            case "tcNo":
+                sendKeysByKey(key, passengers.get(index).getTcNo());
+                break;
+
+            case "phoneNumber":
+                sendKeysByKey(key, passengers.get(index).getPhone());
+                break;
+            case "airportSearch-from":
+                key = key.split("-")[0];
+                sendKeysByKey(key, "SAW");
+                break;
+            case "airportSearch-to":
+                key = key.split("-")[0];
+                sendKeysByKey(key, routes.get(index).getTo());
+                break;
+        }
+    }
+
+    public static int randomNumber(int start, int end) {
+        Random rnd = new Random();
+        int randomNumber = rnd.nextInt(end - 1) + start;
+        return randomNumber;
+    }
 }
 
 

@@ -3,6 +3,7 @@ package com.turkishairlines.selector;
 
 
 import com.turkishairlines.model.ElementInfo;
+import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 
 public class AndroidSelector implements Selector {
@@ -21,6 +22,9 @@ public class AndroidSelector implements Selector {
     }
     else if (elementInfo.getAndroidType().equals("text")){
       by = By.linkText(elementInfo.getAndroidValue());
+    }
+    else if (elementInfo.getAndroidType().equals("uiSelector")){
+      by = MobileBy.AndroidUIAutomator(elementInfo.getAndroidValue());;
     }
     return by;
   }
