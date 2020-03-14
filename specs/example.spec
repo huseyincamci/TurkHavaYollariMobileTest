@@ -9,8 +9,8 @@ tags: First case
 * Wait "6" seconds
 * "bookFlight" li elementi bul ve varsa tıkla
 * "oneWay" li elementi bul ve varsa tıkla
-* Yön bilgisi olarak SAW to ESB Seçilir
-* "4" gün sonraya bilet seç
+* Yön bilgileri seçilir
+* "2" gün sonraya bilet seç
 * "addToAdult" li elementi bul ve varsa tıkla
 * "searchFlight" li elementi bul ve varsa tıkla
 * "btnPrice" li elementi bul ve varsa tıkla
@@ -22,14 +22,11 @@ tags: First case
 * "btnPassengerContinue" li elementi bul ve varsa tıkla
 * "countryCode" li elementi bul ve varsa tıkla
 * "codeTr" li elementi bul ve varsa tıkla
-* "phoneNumber" li elementi bul ve "5384328833" değerini yaz
+* "phoneNumber" li elemente "0" indexli değeri yaz
 * "btnContactInfoContinue" li elementi bul ve varsa tıkla
 * "additionalServices" li elementi bul ve varsa tıkla
 * "manageFlightDetails" li elementi bul ve tıkla
 * "cbPassengerSelection" li elementi bul ve tıkla
 * Koltuk seçimi yap devam et
-* "btnGenericContinue" li elementi bul ve tıkla
-* "btnGenericContinue" li elementi bul ve tıkla
-* "btnGenericContinue" li elementi bul ve tıkla
-* Kredi kartı bilgilerini doldur
+* Kredi kartı bilgileri doldurulur ve test sonlandırılır
 * Wait "6" seconds

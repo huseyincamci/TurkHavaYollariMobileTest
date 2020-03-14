@@ -1195,11 +1195,9 @@ public class StepImpl extends HookImpl {
             case "txtSurname":
                 sendKeysByKey(key, passengers.get(index).getLastName());
                 break;
-
             case "year":
                 clickByKey(key);
                 break;
-
             case "month":
                 clickByKey(key);
                 break;
@@ -1212,7 +1210,6 @@ public class StepImpl extends HookImpl {
             case "tcNo":
                 sendKeysByKey(key, passengers.get(index).getTcNo());
                 break;
-
             case "phoneNumber":
                 sendKeysByKey(key, passengers.get(index).getPhone());
                 break;
